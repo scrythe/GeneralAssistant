@@ -6,7 +6,7 @@ const fastify = Fastify({
 });
 
 fastify.get("/", async function handler(request, reply) {
-  return "Hello World";
+  return { message: "Hello World!" };
 });
 
 async function listen() {
