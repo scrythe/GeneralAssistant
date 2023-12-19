@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/BlackDragdroit/GeneralAssistant#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "fastify": "^4.25.1"
   }
 }

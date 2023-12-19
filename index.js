@@ -1,11 +1,18 @@
-const express = require("express");
-const app = express();
-const port = process.env.PORT | 3000;
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+const Fastify = require("fastify");
+const fastify = Fastify({
+  logger: true,
 });
 
-app.listen(port, () => {
-  console.log(`Assistant listening on port ${port}`);
+fastify.get("/", async function handler(request, reply) {
+  return "Hello World";
 });
+
+async function listen() {
+  try {
+    await fastify.listen({ port: 3000 });
+  } catch (err) {
+    fastify.log.error(err);
+    process.exit(1);
+  }
+}
+listen();
