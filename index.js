@@ -5,16 +5,17 @@ const fastify = Fastify({
   logger: true,
 });
 
-fastify.get("/", async function handler(request, reply) {
+fastify.get("/", async function handler() {
   return { message: "Hello World!" };
 });
 
-async function listen() {
+const listen = async () => {
   try {
-    await fastify.listen({ port, host: "0.0.0.0" });
+    fastify.listen({ port, host: "0.0.0.0" });
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);
   }
-}
+};
+
 listen();
